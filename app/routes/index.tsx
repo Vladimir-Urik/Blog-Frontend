@@ -29,10 +29,10 @@ export default function Index() {
     return (
         <div className="bg-gray-50">
             <Navbar />
-            <header className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 w-full h-[400px] flex">
+            <header className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 w-full h-[400px] flex">
                 <div className="self-center mx-auto text-center">
                     <h1 className="poppins-700 text-[60px] text-black">Blog.</h1>
-                    <h2 className="text-[15px] text-gray-800 poppins text-center max-w-[300px] lg:max-w-[450px]">Vitajte na blogu 15 ročného <span className="text-purple-800">Vladimíra "GGGEDR" Uríka</span> ktorého zaujíma výpočetná technika a programovanie.</h2>
+                    <h2 className="text-[15px] text-gray-800 poppins text-center max-w-[300px] lg:max-w-[450px]">Vitajte na blogu 15 ročného <a className="text-indigo-700 hover:text-indigo-900 hover:underline hover:underline-offset-4 hover:decoration-indigo-700/[.33] hover:decoration-2" href="https://github.com/Vladimir-Urik">Vladimíra "GGGEDR" Uríka</a> ktorého zaujíma výpočetná technika a programovanie.</h2>
                     <div className="mx-auto mt-5 bg-white shadow-lg p-2 rounded-sm max-w-[300px] lg:max-w-[400px]">
                         <div className="flex w-full">
                             <input onKeyDown={(event) => onEnter(event, query)} className="rounded-l-md w-3/4 px-3 py-2 bg-gray-100 focus:outline-none poppins" id="query-input" placeholder="Názov postu..." value={query} onChange={event => setQuery(event.target.value)}/>
