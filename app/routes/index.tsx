@@ -33,10 +33,10 @@ export default function Index() {
                 <div className="self-center mx-auto text-center">
                     <h1 className="poppins-700 text-[60px] text-black">Blog.</h1>
                     <h2 className="text-[15px] text-gray-800 poppins text-center max-w-[300px] lg:max-w-[450px]">Vitajte na blogu 15 ročného <a className="text-indigo-700 hover:text-indigo-900 hover:underline hover:underline-offset-4 hover:decoration-indigo-700/[.33] hover:decoration-2" href="https://github.com/Vladimir-Urik">Vladimíra "GGGEDR" Uríka</a> ktorého zaujíma výpočetná technika a programovanie.</h2>
-                    <div className="mx-auto mt-5 bg-white shadow-lg p-2 rounded-sm max-w-[300px] lg:max-w-[400px]">
+                    <div className="mx-auto mt-5 bg-white shadow-lg p-2 rounded-[4px] max-w-[300px] lg:max-w-[400px]">
                         <div className="flex w-full">
                             <input onKeyDown={(event) => onEnter(event, query)} className="rounded-l-md w-3/4 px-3 py-2 bg-gray-100 focus:outline-none poppins" id="query-input" placeholder="Názov postu..." value={query} onChange={event => setQuery(event.target.value)}/>
-                            <button onClick={() => search(query)} className="w-1/4 bg-indigo-600 rounded-r-md group hover:bg-indigo-800 transition-colors duration-200"><SearchIcon className="h-5 w-5 mx-auto fill-gray-200 group-hover:fill-gray-400 transition-colors duration-200"/></button>
+                            <button onClick={() => search(query)} className="w-1/4 bg-indigo-600 rounded-r-md group hover:bg-indigo-700 transition-colors duration-200"><SearchIcon className="h-5 w-5 mx-auto fill-indigo-100 opacity-70 group-hover:fill-gray-100 group-hover:opacity-100 transition-colors duration-200"/></button>
                         </div>
                     </div>
                 </div>
