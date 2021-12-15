@@ -31,7 +31,7 @@ export default function Post(
             </div>
             <div className="px-2 py-4">
                 <p className="text-xs text-gray-700 px-1 poppins-500">{date}</p>
-                <Link to={`/blog/${id}`}><p className="text-3xl text-black poppins-700 px-1 mt-1 font-bold">{title}</p></Link>
+                <Link to={`/blog/${id}`}><p className="text-3xl text-black poppins-700 px-1 mt-1 font-bold text-ellipsis overflow-hidden w-full" dangerouslySetInnerHTML={{ __html: title}}/></Link>
                 <p className="mt-1 px-1 max-h-24 poppins text-[15px]">{description}</p>
             </div>
         </div>

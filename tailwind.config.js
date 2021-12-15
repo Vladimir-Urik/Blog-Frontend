@@ -5,4 +5,7 @@ module.exports = {
   theme: { extend: {} }, // customize the theme however you want here
   variants: {}, // activate any variant you want here
   plugins: [], // add any plugin you need here
+  safelist: [
+    'bg-[#9F9CFF42]',
+  ]
 };

@@ -85,42 +85,44 @@ export default function DashboardUsers() {
             {actionData && ((new Date().getTime() - actionData.time) < 1000) && <Notification type={actionData.type} description={actionData.message}/>}
             <h1 className="poppins-700">Uživateľia</h1>
             <div className="mt-4 px-2">
-                <table className="w-full text-left table-fixed rounded-md">
-                    <thead className="bg-indigo-500/80">
-                        <tr>
-                            <th className="py-1 poppins-500 w-[40px] text-center">#</th>
-                            <th className="py-1 poppins-500 w-[100px] md:w-[200px]">Username</th>
-                            <th className="py-1 poppins-500 text-ellipsis overflow-hidden">Description</th>
-                            <th className="py-1 poppins-500 w-[100px] text-center">Akcie</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {data.users.map((user: any) => (
-                        <tr key={user.id} className="odd:bg-indigo-100/70 even:bg-indigo-200/70">
-                            <td className="text-center py-1">
-                                <img src={user.avatar} className="w-[30px] h-[30px] rounded-full mx-auto" alt="Avatar"/>
-                            </td>
-                            <td className="py-1 text-ellipsis overflow-hidden px-1 poppins">
-                                {user.username}
-                            </td>
-                            <td className="py-1 text-ellipsis overflow-hidden px-1 poppins text-[15px]">{user.description}</td>
-                            <td className="text-center">
-                                {(user.id === data.user.id || user.id === 1) ? (
-                                    <button className="py-1 px-2 md:px-4 bg-indigo-500/80 rounded-md text-indigo-100/80 poppins cursor-not-allowed text-[15px]" disabled>Zmazať</button>
-                                ) : (
-                                    <Form method="post">
-                                        <input className="hidden" id="target" name="target" defaultValue={user.id}/>
-                                        <button className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Zmazať</button>
-                                    </Form>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                    <div className="mt-3 mb-1">
-                        <Link to="/dashboard/users/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Pridať</Link>
-                    </div>
-                </table>
+                <div className="overflow-auto">
+                    <table className="w-full text-left rounded-md min-w-[600px]">
+                        <thead className="bg-indigo-500/70">
+                            <tr>
+                                <th className="py-1 poppins-500 text-center">#</th>
+                                <th className="py-1 poppins-500">Username</th>
+                                <th className="py-1 poppins-500 text-ellipsis overflow-hidden">Description</th>
+                                <th className="py-1 poppins-500 text-center">Akcie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {data.users.map((user: any) => (
+                            <tr key={user.id} className="odd:bg-indigo-100/70 even:bg-indigo-200/70">
+                                <td className="text-center py-1">
+                                    <img src={user.avatar} className="w-[30px] h-[30px] rounded-full mx-auto" alt="Avatar"/>
+                                </td>
+                                <td className="py-1 text-ellipsis overflow-hidden px-1 poppins">
+                                    {user.username}
+                                </td>
+                                <td className="py-1 text-ellipsis overflow-hidden px-1 poppins text-[15px]">{user.description}</td>
+                                <td className="text-center">
+                                    {(user.id === data.user.id || user.id === 1) ? (
+                                        <button className="py-1 px-2 md:px-4 bg-indigo-500/80 rounded-md text-indigo-100/80 poppins cursor-not-allowed text-[15px]" disabled>Zmazať</button>
+                                    ) : (
+                                        <Form method="post">
+                                            <input className="hidden" id="target" name="target" defaultValue={user.id}/>
+                                            <button className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Zmazať</button>
+                                        </Form>
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="mt-3 mb-1">
+                    <Link to="/dashboard/users/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Pridať</Link>
+                </div>
             </div>
         </>
     );
