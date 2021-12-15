@@ -32,10 +32,10 @@ export default function Login() {
 
     return (
         <div className="bg-gray-100 h-screen w-full">
-            {error != null && ((new Date().getTime() - error.time) < 1000) ? <Notification type={"error"} description={error.data}/> : null}
+            {error != null && ((new Date().getTime() - error.time) < 1000) && <Notification type={"error"} description={error.data}/>}
             <div className="mx-auto px-4 py-6 bg-white shadow-sm max-w-[18rem] rounded-md vertical-center right-0 left-0">
                 <h1 className="text-black self-center poppins-700 text-[50px] text-center">Blog.</h1>
-                <Form method="post" autoComplete="off" autoCorrect="off">
+                <Form method="post">
                     <div className="mt-5">
                         <p className="text-gray-700 text-sm poppins-500">Username:</p>
                         <input id="username" name="username" className="mt-1 text-center w-full py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="Username"/>

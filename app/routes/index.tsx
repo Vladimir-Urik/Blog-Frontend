@@ -1,12 +1,11 @@
 import type { MetaFunction } from "remix";
 import Navbar from "../components/navbar";
 import { SearchIcon } from '@heroicons/react/solid'
-import React, {useState} from "react";
+import React from "react";
 import Post from "../components/post";
 import Footer from "../components/footer";
 import {ActionFunction, Form, LoaderFunction, useActionData, useLoaderData} from "remix";
 import { getPosts } from "../services/blog.server";
-import {guestMiddleware} from "../services/auth.server";
 import client from "../services/axios.server";
 import search from "../images/search.svg"
 
@@ -18,7 +17,7 @@ export let meta: MetaFunction = () => {
 };
 
 type Data = {
-    posts: any,
+    posts: any
 };
 
 export let action: ActionFunction = async ({request}) => {
@@ -36,7 +35,7 @@ export let action: ActionFunction = async ({request}) => {
     return result;
 };
 
-export let loader: LoaderFunction = async () => {
+export let loader: LoaderFunction = async ({request}) => {
     let posts = await getPosts();
 
     let result: Data = {
@@ -62,7 +61,7 @@ export default function Index() {
                     <h1 className="poppins-700 text-[60px] text-black">Blog.</h1>
                     <h2 className="text-[15px] text-gray-800 poppins text-center max-w-[300px] lg:max-w-[450px]">Vitajte na blogu 15 ročného <a className="text-indigo-700 hover:text-indigo-900 hover:underline hover:underline-offset-4 hover:decoration-indigo-700/[.33] hover:decoration-2" href="https://github.com/Vladimir-Urik">Vladimíra "GGGEDR" Uríka</a> ktorého zaujíma výpočetná technika a programovanie.</h2>
                     <div className="mx-auto mt-5 bg-white shadow-lg p-2 rounded-[4px] max-w-[300px] lg:max-w-[400px]">
-                        <Form method="post" autoComplete="off" autoCorrect="off">
+                        <Form method="post">
                             <div className="flex w-full">
                                 <input className="rounded-l-md w-3/4 px-3 py-2 bg-gray-100 focus:outline-none poppins" id="query" name="query" placeholder="Názov postu..."/>
                                 <button type="submit" className="w-1/4 bg-indigo-600 rounded-r-md group hover:bg-indigo-700 transition-colors duration-200"><SearchIcon className="h-5 w-5 mx-auto fill-indigo-100 opacity-70 group-hover:fill-gray-100 group-hover:opacity-100 transition-colors duration-200"/></button>

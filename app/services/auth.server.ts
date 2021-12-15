@@ -1,17 +1,7 @@
-import { createCookieSessionStorage, redirect } from "remix"
+import { redirect } from "remix"
 import { AxiosResponse } from "axios"
 import client from "./axios.server";
-
-let storage = createCookieSessionStorage({
-    cookie: {
-        name: "blog_session",
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 3,
-        sameSite: "lax",
-        path: "/",
-        secure: false
-    }
-})
+import {storage} from "./session.server";
 
 export async function login(request: Request, username: string, password: string): Promise<any> {
     let response: AxiosResponse;
@@ -31,7 +21,7 @@ export async function login(request: Request, username: string, password: string
     }
 
     let session = await storage.getSession(request.headers.get("Cookie"));
-    session.set("token", response.data.token);
+    await session.set("token", response.data.token);
 
     return {
         redirect: redirect("/", {
@@ -46,10 +36,10 @@ export async function logout(request: Request): Promise<any> {
     let session = await storage.getSession(request.headers.get("Cookie"));
 
     return redirect("/", {
-            headers: {
-                "Set-Cookie": await storage.destroySession(session)
-            }
-        });
+        headers: {
+            "Set-Cookie": await storage.destroySession(session)
+        }
+    });
 }
 
 export async function isLogged(request: Request): Promise<boolean> {
@@ -58,8 +48,17 @@ export async function isLogged(request: Request): Promise<boolean> {
 
 export async function getToken(request: Request): Promise<any> {
     let session = await storage.getSession(request.headers.get("Cookie"));
-
     return session.get("token")
+}
+
+export async function changeToken(request: Request, token: string, redirectPath: string): Promise<void> {
+    let session = await storage.getSession(request.headers.get("Cookie"));
+    await session.set("token", token)
+    throw redirect(redirectPath, {
+        headers: {
+            "Set-Cookie": await storage.commitSession(session)
+        }
+    })
 }
 
 export async function getSessionInfo(request: Request): Promise<any> {

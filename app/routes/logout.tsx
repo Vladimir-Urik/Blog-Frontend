@@ -1,4 +1,4 @@
-import { LoaderFunction, MetaFunction } from "remix";
+import {ActionFunction, LoaderFunction, MetaFunction} from "remix";
 import {authMiddleware, logout} from "../services/auth.server";
 
 export let meta: MetaFunction = () => {
