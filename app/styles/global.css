@@ -68,3 +68,125 @@
   background-color: #9F9CFF42 !important;
   color: black !important;
 }
+
+.markdown > blockquote {
+  border-left: 3px solid rgba(150, 97, 255, 0.51);
+  background-color: rgba(150, 97, 255, 0.07);
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  margin: 0.2em 0;
+  font-style: italic;
+}
+
+.markdown > ul {
+  list-style: disc;
+}
+
+.markdown > ul > li {
+  display: list-item;
+  margin-left: 2em;
+}
+
+.markdown > ul > li::marker {
+  color: rgba(150, 97, 255, 0.51);
+}
+
+.markdown > code {
+  background-color: rgba(150, 97, 255, 0.07);
+  color: rgb(69, 0, 187);
+  border-radius: 3px;
+  font-family: Monospaced, serif;
+  display: inline-block;
+}
+
+.markdown > pre {
+  background-color: rgba(202, 176, 255, 0.24);
+  border-radius: 5px;
+  padding: 0.5em;
+  overflow: auto;
+}
+
+.markdown > pre > code {
+  color: rgb(63, 0, 159);
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.markdown > table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown > table > thead {
+  text-align: center;
+  background-color: rgba(119, 113, 218, 0.49);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.markdown > table > thead > th {
+  padding: 0.5em;
+  border: solid 2px rgba(119, 113, 218, 0.10);
+}
+
+.markdown > table > tbody {
+  text-align: center;
+  background-color: rgba(171, 168, 224, 0.49);
+}
+
+.markdown > table > tbody > td {
+  padding: 0.1em;
+  border: solid 2px rgba(171, 168, 224, 0.10);
+}
+
+.markdown > h1, .markdown > h2, .markdown > h3, .markdown > h4, .markdown > h5, .markdown > h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700 !important;
+  margin-top: 0.7em !important;
+  margin-bottom: 0.2em !important;
+}
+
+.markdown > h1 {
+  font-size: 2.5em;
+}
+
+.markdown > h2 {
+  font-size: 2em;
+}
+
+.markdown > h3 {
+  font-size: 1.5em;
+}
+
+.markdown > h4 {
+  font-size: 1.25em;
+}
+
+.markdown > h5 {
+  font-size: 1em;
+}
+
+.markdown > h6 {
+  font-size: 0.75em;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0c6ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #724dbd;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5f31bd;
+}

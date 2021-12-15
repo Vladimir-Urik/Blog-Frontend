@@ -44,7 +44,7 @@ export default function Authors() {
                     avatar: string;
                     username: string;
                     description: string;
-                }) => <AuthorCard id={author.id} avatar={author.avatar} username={author.username} description={author.description}/>)}
+                }) => <AuthorCard className="inline-block mr-2" key={author.id} avatar={author.avatar} username={author.username} description={author.description}/>)}
             </div>
             <Footer />
         </div>
