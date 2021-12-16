@@ -9,7 +9,7 @@ import Notification from "../../../components/notification";
 export let meta: MetaFunction = () => {
     return {
         title: "Blog • Uživateľia",
-        description: "Blog authors list"
+        description: "Blog users"
     };
 };
 

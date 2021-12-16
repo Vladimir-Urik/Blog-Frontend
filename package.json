@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tailwindcss --output ./app/styles/tailwind.css --config ./tailwind.config.js --minify && remix build",
     "dev": "remix dev",
+    "dev-tailwind": "tailwindcss --output ./app/styles/tailwind.css --config ./tailwind.config.js --watch",
     "postinstall": "remix setup node",
     "start": "remix-serve build"
   },

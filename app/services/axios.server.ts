@@ -2,7 +2,7 @@ import axios from "axios";
 import { redirect } from "remix";
 
 let client = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "http://127.0.0.1:4444",
   headers: {
     "Content-Type": "application/json"
   }

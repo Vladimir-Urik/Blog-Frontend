@@ -37,10 +37,6 @@ export let loader: LoaderFunction = async ({params}) => {
     return result
 }
 
-function parseMarkdown(text: string): string {
-    return Marked.parse(text);
-}
-
 export default function Blog() {
     let data = useLoaderData<LoaderData>()
 
@@ -54,12 +50,11 @@ export default function Blog() {
     return (
         <div className="bg-gray-50 w-full">
             <Navbar />
-            <div className="max-w-[300px] text-left sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300] mx-auto mt-[3em]">
+            <div className="max-w-[350px] text-left sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300] mx-auto mt-[3em]">
                 <div style={postImage} className="rounded-md h-[200px] md:h-[300px] lg:h-[450px] xl:h-[600px] w-full">
                 </div>
-                <h1 className="poppins-700 text-[50px] text-center mt-8">{data.post.title}</h1>
-                <div className="mt-2 poppins markdown" dangerouslySetInnerHTML={{ __html: parseMarkdown(data.post.content)}}>
-                </div>
+                <h1 className="poppins-700 text-[50px] text-center mt-8 text-ellipsis overflow-hidden">{data.post.title}</h1>
+                <div className="mt-2 poppins markdown" dangerouslySetInnerHTML={{ __html: Marked.parse(data.post.content)}}/>
                 <div className="text-center mt-16">
                     <h1 className="poppins-700 text-[30px] text-center">Autor</h1>
                     <AuthorCard className="mx-auto" avatar={data.post.author.avatar} username={data.post.author.username} description={data.post.author.description} />

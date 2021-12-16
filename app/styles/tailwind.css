@@ -614,6 +614,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 200px;
 }
 
+.h-\[250px\] {
+  height: 250px;
+}
+
 .max-h-24 {
   max-height: 6rem;
 }
@@ -654,24 +658,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
-.w-\[40px\] {
-  width: 40px;
-}
-
-.w-\[100px\] {
-  width: 100px;
-}
-
-.w-\[50px\] {
-  width: 50px;
+.min-w-\[800px\] {
+  min-width: 800px;
 }
 
 .min-w-\[600px\] {
   min-width: 600px;
-}
-
-.min-w-\[800px\] {
-  min-width: 800px;
 }
 
 .max-w-\[18rem\] {
@@ -690,12 +682,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 800px;
 }
 
-.flex-grow {
-  flex-grow: 1;
+.max-w-\[350px\] {
+  max-width: 350px;
 }
 
-.table-fixed {
-  table-layout: fixed;
+.flex-grow {
+  flex-grow: 1;
 }
 
 .cursor-pointer {
@@ -704,6 +696,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cursor-not-allowed {
   cursor: not-allowed;
+}
+
+.resize-none {
+  resize: none;
 }
 
 .flex-wrap {
@@ -832,16 +828,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-500\/70 {
+  background-color: rgb(99 102 241 / 0.7);
+}
+
 .bg-indigo-500\/80 {
   background-color: rgb(99 102 241 / 0.8);
 }
 
 .bg-\[\#9F9CFF42\] {
   background-color: #9F9CFF42;
-}
-
-.bg-indigo-500\/70 {
-  background-color: rgb(99 102 241 / 0.7);
 }
 
 .bg-gradient-to-r {
@@ -986,10 +982,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[30px\] {
   font-size: 30px;
-}
-
-.text-\[10px\] {
-  font-size: 10px;
 }
 
 .text-\[13px\] {
@@ -1284,10 +1276,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-\[300px\] {
     width: 300px;
-  }
-
-  .md\:w-\[200px\] {
-    width: 200px;
   }
 
   .md\:max-w-\[600px\] {

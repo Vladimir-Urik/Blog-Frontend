@@ -4,7 +4,6 @@ import {changeToken, getSessionInfo, getToken} from "../../services/auth.server"
 import {Form, useActionData, useLoaderData} from "remix";
 import client from "../../services/axios.server";
 import AuthorCard from "../../components/authorCard";
-import {userInfo} from "os";
 import Notification from "../../components/notification";
 
 export let meta: MetaFunction = () => {
@@ -42,12 +41,8 @@ export let action: ActionFunction = async ({request}) => {
         }
 
         if(response.status === 200){
-            await changeToken(request, response.data.token, "/dashboard/settings");
-            return {
-                message: response.data.message,
-                type: "success",
-                time: new Date().getTime()
-            }
+            await changeToken(request, response.data.token, "/dashboard/settings?success");
+            return null;
         } else {
             return {
                 message: response.data.error,
@@ -78,7 +73,6 @@ export let action: ActionFunction = async ({request}) => {
         }
 
         if(response.status === 200){
-            await changeToken(request, response.data.token, "/dashboard/settings");
             return {
                 message: response.data.message,
                 type: "success",
@@ -101,14 +95,31 @@ export let action: ActionFunction = async ({request}) => {
 };
 
 type LoaderData = {
-    user: any
+    user: any,
+    message: any,
+    type: any,
+    time: any
 }
 
 export let loader: LoaderFunction = async ({request}) => {
     let user = await getSessionInfo(request);
 
+    if(request.url.split("?")[1] === "success="){
+        let loaderData: LoaderData = {
+            user,
+            message: "Password successfully changed & token regenerated.",
+            type: "success",
+            time: new Date().getTime()
+        };
+
+        return loaderData;
+    }
+
     let result: LoaderData = {
-        user
+        user,
+        message: null,
+        type: null,
+        time: null
     };
 
     return result;
@@ -125,6 +136,7 @@ export default function DashboardSettings() {
     return (
         <>
             {actionData && ((new Date().getTime() - actionData.time) < 1000) && <Notification type={actionData.type} description={actionData.message}/>}
+            {data.message && data.type && data.time && ((new Date().getTime() - data.time) < 1000) && <Notification type={data.type} description={data.message}/>}
             <h1 className="poppins-700">Uživateľské nastavenia</h1>
             <div className="mt-4 px-2">
                 <Form method="post">

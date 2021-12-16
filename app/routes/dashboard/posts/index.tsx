@@ -1,13 +1,12 @@
-import type {LoaderFunction, MetaFunction} from "remix";
+import type { LoaderFunction, MetaFunction } from "remix";
 import React from "react";
-import {getPosts} from "../../../services/blog.server";
-import {Form, Link, useLoaderData} from "remix";
-import Notification from "../../../components/notification";
+import { getPosts } from "../../../services/blog.server";
+import { Form, Link, useLoaderData } from "remix";
 
 export let meta: MetaFunction = () => {
     return {
         title: "Blog • Posty",
-        description: "Blog authors list"
+        description: "Blog posts"
     };
 };
 
@@ -55,10 +54,7 @@ export default function DashboardPosts() {
                                     {new Date(post.date/1000).toDateString()}
                                 </td>
                                 <td className="text-center py-1 px-2">
-                                    <Form method="post">
-                                        <input className="hidden" id="target" name="target" defaultValue={post.id}/>
-                                        <button className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Edit</button>
-                                    </Form>
+                                    <Link to={`/dashboard/posts/${post.id}`} className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Edit</Link>
                                 </td>
                             </tr>
                         ))}

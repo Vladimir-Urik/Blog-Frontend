@@ -50,21 +50,7 @@ export let action: ActionFunction = async ({request}) => {
     return data;
 };
 
-type LoaderData = {
-    users: any
-};
-
-export let loader: LoaderFunction = async () => {
-    let response = await client.get("/users");
-
-    let results: LoaderData = {
-        users: response.data
-    };
-
-    return results;
-}
-
-export default function DashboardUsers() {
+export default function DashboardUsersNew() {
     let actionData = useActionData<ActionData>();
 
     let [name, setName] = useState("Meno");
