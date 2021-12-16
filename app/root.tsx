@@ -146,9 +146,11 @@ function Layout({ children, data }: { children: React.ReactNode, data?: LoaderDa
                     </div>
                   </>
               ) : (
-                  <Link to={"/login"} title="Login">
-                    <LoginIcon className="h-[30px] w-[30px] text-indigo-100 text-opacity-70 group-hover:text-gray-100 group-hover:text-opacity-100 transition-all duration-200"/>
-                  </Link>
+                  <div className={"z-50 fixed bg-indigo-600 rounded-[5px] py-2 px-2 "+ (data.user == null ? "right-[1em]" : "right-[4.2em]") +" bottom-[1em] hover:bg-indigo-700 transition-all duration-200"}>
+                    <Link to={"/login"} title="Login">
+                      <LoginIcon className="h-[30px] w-[30px] text-indigo-100 text-opacity-70 group-hover:text-gray-100 group-hover:text-opacity-100 transition-all duration-200"/>
+                    </Link>
+                  </div>
               )}
             </div>
           </>

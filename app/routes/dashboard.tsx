@@ -18,13 +18,13 @@ export default function DashboardLayout() {
                 <div className="w-[300px] mx-auto">
                     <div className="bg-white mx-auto w-full mt-10 rounded-md shadow-sm">
                         <NavLink to="/dashboard/settings" className="py-2 px-2 text-black/60 hover:text-black mr-2 hover:bg-[#9F9CFF42] poppins w-full rounded-t-md inline-block">
-                            Uživateľské nastavenia
+                            User settings
                         </NavLink>
                         <NavLink to="/dashboard/users" className="py-2 px-2 text-black/60 hover:text-black mr-2 hover:bg-[#9F9CFF42] poppins w-full inline-block">
-                            Uživatelia
+                            Users
                         </NavLink>
                         <NavLink to="/dashboard/posts" className="py-2 px-2 text-black/60 hover:text-black mr-2 hover:bg-[#9F9CFF42] poppins w-full rounded-b-md inline-block">
-                            Posty
+                            Posts
                         </NavLink>
                     </div>
                 </div>

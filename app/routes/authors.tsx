@@ -35,7 +35,7 @@ export default function Authors() {
             <Navbar/>
             <header className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 w-full h-[300px] flex">
                 <div className="self-center mx-auto text-center">
-                    <h1 className="poppins-700 text-[60px] text-black">Autori</h1>
+                    <h1 className="poppins-700 text-[60px] text-black">Authors</h1>
                 </div>
             </header>
             <div className="max-w-[600px] mx-auto text-center lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300]">

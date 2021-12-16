@@ -1,16 +1,15 @@
-import type {ActionFunction, LoaderFunction, MetaFunction} from "remix";
+import type { ActionFunction, MetaFunction } from "remix";
 import React, {useState} from "react";
 import client from "../../../services/axios.server";
 import {Form, redirect, useActionData} from "remix";
 import AuthorCard from "../../../components/authorCard";
 import {getToken} from "../../../services/auth.server";
 import Notification from "../../../components/notification";
-import {storage} from "../../../services/session.server";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Pridať uživateľa",
-        description: "Blog new user"
+        title: "Blog • Add user",
+        description: "Blog add user"
     };
 };
 
@@ -53,14 +52,14 @@ export let action: ActionFunction = async ({request}) => {
 export default function DashboardUsersNew() {
     let actionData = useActionData<ActionData>();
 
-    let [name, setName] = useState("Meno");
+    let [name, setName] = useState("Name");
     let [avatar, setAvatar] = useState("https://i.imgur.com/kVwGJt5.png");
-    let [description, setDescription] = useState("Nový uživateľ!");
+    let [description, setDescription] = useState("I'm new user!");
 
     return (
         <>
             {actionData && ((new Date().getTime() - actionData.time) < 1000) && <Notification type="error" description={actionData.message}/>}
-            <h1 className="poppins-700">Pridať uživateľa</h1>
+            <h1 className="poppins-700">Add user</h1>
             <div className="mt-4 px-2">
                 <Form method="post">
                     <div>
@@ -72,7 +71,7 @@ export default function DashboardUsersNew() {
                         <input id="password" name="password" className="mt-1 w-full md:w-[300px] py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" type="password" placeholder="Password"/>
                     </div>
                     <div className="mt-2">
-                        <p className="text-gray-700 text-sm poppins-500">Popis:</p>
+                        <p className="text-gray-700 text-sm poppins-500">Description:</p>
                         <input id="description" value={description} onChange={(e) => setDescription(e.target.value)} maxLength={50} name="description" className="mt-1 w-full md:w-[300px] py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="Description"/>
                     </div>
                     <div className="mt-2">
@@ -80,10 +79,10 @@ export default function DashboardUsersNew() {
                         <input id="avatar" value={avatar} onChange={(e) => setAvatar(e.target.value)} name="avatar" maxLength={255} className="mt-1 w-full py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins max-w-[800px]" placeholder="Avatar URL"/>
                     </div>
                     <div className="mt-2">
-                        <p className="text-gray-700 text-sm poppins-500">Náhlad:</p>
+                        <p className="text-gray-700 text-sm poppins-500">Preview:</p>
                         <AuthorCard className="mt-1 w-full lg:w-[400px]" key={avatar && description && name} avatar={avatar} description={description} username={name}/>
                     </div>
-                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Pridať</button>
+                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Add</button>
                 </Form>
             </div>
         </>

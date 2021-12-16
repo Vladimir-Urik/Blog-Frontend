@@ -8,8 +8,8 @@ import Notification from "../../components/notification";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Uživateľské nastavenia",
-        description: "Blog authors list"
+        title: "Blog • User settings",
+        description: "Blog user settings"
     };
 };
 
@@ -88,7 +88,7 @@ export let action: ActionFunction = async ({request}) => {
     }
 
     return {
-        message: "Neznáma požiadavka",
+        message: "Invalid request",
         type: "error",
         time: new Date().getTime()
     }
@@ -137,18 +137,18 @@ export default function DashboardSettings() {
         <>
             {actionData && ((new Date().getTime() - actionData.time) < 1000) && <Notification type={actionData.type} description={actionData.message}/>}
             {data.message && data.type && data.time && ((new Date().getTime() - data.time) < 1000) && <Notification type={data.type} description={data.message}/>}
-            <h1 className="poppins-700">Uživateľské nastavenia</h1>
+            <h1 className="poppins-700">User settings</h1>
             <div className="mt-4 px-2">
                 <Form method="post">
                     <div>
-                        <p className="text-gray-700 text-sm poppins-500">Staré heslo:</p>
+                        <p className="text-gray-700 text-sm poppins-500">Old password:</p>
                         <input id="old-password" type="password" name="old-password" className="mt-1 py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] w-full md:w-[300px] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="***********"/>
                     </div>
                     <div className="mt-2">
-                        <p className="text-gray-700 text-sm poppins-500">Nové heslo:</p>
+                        <p className="text-gray-700 text-sm poppins-500">New password:</p>
                         <input id="new-password" type="password" name="new-password" className="mt-1 py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] w-full md:w-[300px] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="***********"/>
                     </div>
-                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Uložiť</button>
+                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Save</button>
                 </Form>
 
                 <Form method="post">
@@ -157,7 +157,7 @@ export default function DashboardSettings() {
                         <input id="username" value={name} onChange={(e) => setName(e.target.value)} name="username" maxLength={24} className="mt-1 w-full md:w-[300px] py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="Username"/>
                     </div>
                     <div className="mt-2">
-                        <p className="text-gray-700 text-sm poppins-500">Popis:</p>
+                        <p className="text-gray-700 text-sm poppins-500">Description:</p>
                         <input id="description" value={description} onChange={(e) => setDescription(e.target.value)} maxLength={50} name="description" className="mt-1 w-full md:w-[300px] py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins" placeholder="Description"/>
                     </div>
                     <div className="mt-2">
@@ -165,10 +165,10 @@ export default function DashboardSettings() {
                         <input id="avatar" value={avatar} onChange={(e) => setAvatar(e.target.value)} name="avatar" maxLength={255} className="mt-1 w-full py-1 px-4 bg-gray-100 hover:bg-[#9F9CFF42] focus:bg-[#9F9CFF42] text-black hover:shadow-sm hover:shadow-indigo-300/20 focus:outline-none focus:shadow-sm focus:shadow-indigo-300/20 transition-colors duration-200 shadow-sm rounded-md poppins max-w-[800px]" placeholder="Avatar URL"/>
                     </div>
                     <div className="mt-2">
-                        <p className="text-gray-700 text-sm poppins-500">Náhlad:</p>
+                        <p className="text-gray-700 text-sm poppins-500">Preview::</p>
                         <AuthorCard className="mt-1 w-full lg:w-[400px]" key={avatar && description && name} avatar={avatar} description={description} username={name}/>
                     </div>
-                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Uložiť</button>
+                    <button className="py-1 mt-3 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Save</button>
                 </Form>
             </div>
         </>

@@ -5,7 +5,7 @@ import { Form, Link, useLoaderData } from "remix";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Posty",
+        title: "Blog • Posts",
         description: "Blog posts"
     };
 };
@@ -27,17 +27,17 @@ export default function DashboardPosts() {
 
     return (
         <>
-            <h1 className="poppins-700">Posty</h1>
+            <h1 className="poppins-700">Posts</h1>
             <div className="mt-4 px-2">
                 <div className="overflow-auto">
                     <table className="w-full text-left rounded-md min-w-[800px]">
                         <thead className="bg-indigo-500/70">
                         <tr>
                             <th className="py-1 px-2 poppins-500 text-ellipsis overflow-hidden">Title</th>
-                            <th className="py-1 px-2 poppins-500 ">Popis</th>
-                            <th className="py-1 px-2 poppins-500 text-ellipsis overflow-hidden">Autor</th>
-                            <th className="py-1 px-2 poppins-500 text-ellipsis overflow-hidden">Dátum</th>
-                            <th className="py-1 px-2 poppins-500 text-center">Akcie</th>
+                            <th className="py-1 px-2 poppins-500">Description</th>
+                            <th className="py-1 px-2 poppins-500 text-ellipsis overflow-hidden">Author</th>
+                            <th className="py-1 px-2 poppins-500 text-ellipsis overflow-hidden">Date</th>
+                            <th className="py-1 px-2 poppins-500 text-center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@ export default function DashboardPosts() {
                     </table>
                 </div>
                 <div className="mt-3 mb-1">
-                    <Link to="/dashboard/posts/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Pridať</Link>
+                    <Link to="/dashboard/posts/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Add</Link>
                 </div>
             </div>
         </>

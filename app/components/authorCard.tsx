@@ -8,7 +8,7 @@ function getClasses(className: string): string {
     return className;
 }
 
-export default function AuthorCard({avatar = "https://i.imgur.com/kVwGJt5.png", username = "Username", description = "Basic user descriptions", className = ""}) {
+export default function AuthorCard({avatar = "https://i.imgur.com/kVwGJt5.png", username = "Username", description = "Basic user description", className = ""}) {
     return (
         <div className={getClasses(className)}>
             <div className="bg-white text-left rounded-md flex w-full py-2 px-4 transition-colors transition-transform duration-200 hover:transform hover:-translate-y-1 hover:bg-[#9F9CFF42] shadow-sm">

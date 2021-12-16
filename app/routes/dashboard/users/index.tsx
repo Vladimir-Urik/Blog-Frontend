@@ -8,8 +8,8 @@ import Notification from "../../../components/notification";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Uživateľia",
-        description: "Blog users"
+        title: "Blog • Users",
+        description: "Blog users",
     };
 };
 
@@ -83,7 +83,7 @@ export default function DashboardUsers() {
     return (
         <>
             {actionData && ((new Date().getTime() - actionData.time) < 1000) && <Notification type={actionData.type} description={actionData.message}/>}
-            <h1 className="poppins-700">Uživateľia</h1>
+            <h1 className="poppins-700">Users</h1>
             <div className="mt-4 px-2">
                 <div className="overflow-auto">
                     <table className="w-full text-left rounded-md min-w-[600px]">
@@ -92,7 +92,7 @@ export default function DashboardUsers() {
                                 <th className="py-1 poppins-500 text-center">#</th>
                                 <th className="py-1 poppins-500">Username</th>
                                 <th className="py-1 poppins-500 text-ellipsis overflow-hidden">Description</th>
-                                <th className="py-1 poppins-500 text-center">Akcie</th>
+                                <th className="py-1 poppins-500 text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,11 +107,11 @@ export default function DashboardUsers() {
                                 <td className="py-1 text-ellipsis overflow-hidden px-1 poppins text-[15px]">{user.description}</td>
                                 <td className="text-center">
                                     {(user.id === data.user.id || user.id === 1) ? (
-                                        <button className="py-1 px-2 md:px-4 bg-indigo-500/80 rounded-md text-indigo-100/80 poppins cursor-not-allowed text-[15px]" disabled>Zmazať</button>
+                                        <button className="py-1 px-2 md:px-4 bg-indigo-500/80 rounded-md text-indigo-100/80 poppins cursor-not-allowed text-[15px]" disabled>Delete</button>
                                     ) : (
                                         <Form method="post">
                                             <input className="hidden" id="target" name="target" defaultValue={user.id}/>
-                                            <button className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Zmazať</button>
+                                            <button className="py-1 px-2 md:px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Delete</button>
                                         </Form>
                                     )}
                                 </td>
@@ -121,7 +121,7 @@ export default function DashboardUsers() {
                     </table>
                 </div>
                 <div className="mt-3 mb-1">
-                    <Link to="/dashboard/users/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Pridať</Link>
+                    <Link to="/dashboard/users/new" className="py-1 px-4 bg-indigo-500 rounded-md text-indigo-100 poppins hover:bg-indigo-600 hover:text-indigo-200 hover:shadow-sm hover:shadow-indigo-600/50 transition-all duration-200 text-[15px]">Add</Link>
                 </div>
             </div>
         </>

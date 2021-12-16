@@ -8,8 +8,8 @@ import AuthorCard from "../../components/authorCard";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog",
-        description: "Blog"
+        title: "Blog • Post",
+        description: "Blog post view"
     };
 };
 
@@ -56,7 +56,7 @@ export default function Blog() {
                 <h1 className="poppins-700 text-[50px] text-center mt-8 text-ellipsis overflow-hidden">{data.post.title}</h1>
                 <div className="mt-2 poppins markdown" dangerouslySetInnerHTML={{ __html: Marked.parse(data.post.content)}}/>
                 <div className="text-center mt-16">
-                    <h1 className="poppins-700 text-[30px] text-center">Autor</h1>
+                    <h1 className="poppins-700 text-[30px] text-center">Author</h1>
                     <AuthorCard className="mx-auto" avatar={data.post.author.avatar} username={data.post.author.username} description={data.post.author.description} />
                 </div>
             </div>

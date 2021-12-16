@@ -16,13 +16,13 @@ export default function Contact() {
             <Navbar />
             <header className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 w-full h-[300px] flex">
                 <div className="self-center mx-auto text-center">
-                    <h1 className="poppins-700 text-[60px] text-black">Kontakt</h1>
+                    <h1 className="poppins-700 text-[60px] text-black">Contact</h1>
                 </div>
             </header>
             <div className="mx-auto w-[350px] mt-12">
                 <div className="mx-auto w-full bg-white shadow-sm py-2 px-4 flex">
                     <div className="w-1/2">
-                        <h1 className="poppins-700 text-xl">Sieťe</h1>
+                        <h1 className="poppins-700 text-xl">Sites</h1>
                         <div className="mt-2">
                             <p className="text-[16px]">🐦 <a href="https://twitter.com/GGGEDR" className="poppins-500 text-gray-700 hover:text-blue-500">Twitter</a></p>
                         </div>
@@ -34,7 +34,7 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className="w-1/2 text-right">
-                        <h1 className="poppins-700 text-xl">Ostatné</h1>
+                        <h1 className="poppins-700 text-xl">Other</h1>
                         <div className="mt-2">
                             <p className="text-[16px]"><a href="https://github.com/Vladimir-Urik" className="poppins-500 text-gray-700 hover:text-indigo-500">Github</a> 🐈</p>
                         </div>
