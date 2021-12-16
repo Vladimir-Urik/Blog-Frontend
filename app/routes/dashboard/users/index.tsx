@@ -3,13 +3,11 @@ import React from "react";
 import client from "../../../services/axios.server";
 import {Form, Link, redirect, useActionData, useLoaderData} from "remix";
 import {getSessionInfo, getToken} from "../../../services/auth.server";
-import {string} from "prop-types";
 import Notification from "../../../components/notification";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Users",
-        description: "Blog users",
+        title: "Blog • Users"
     };
 };
 

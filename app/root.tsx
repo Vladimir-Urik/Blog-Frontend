@@ -29,8 +29,13 @@ type LoaderData = {
 }
 
 export let loader: LoaderFunction = async ({ request }) => {
-  let user = await getSessionInfo(request);
+  if(request.url.endsWith("?logout=")){
+    return {
+      user: null,
+    }
+  }
 
+  let user = await getSessionInfo(request);
   let result: LoaderData = {
     user
   };
@@ -54,16 +59,14 @@ export default function App() {
 export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
   return (
-    <Document title="Error!">
+    <Document title={`${error.name} • ${error.message}`}>
       <Layout>
-        <div>
-          <h1>There was an error</h1>
-          <p>{error.message}</p>
-          <hr />
-          <p>
-            Hey, developer, you should replace this with what you want your
-            users to see.
-          </p>
+        <div className="bg-gray-100 h-screen w-full">
+          <div className="mx-auto px-4 py-6 bg-white shadow-sm max-w-[18rem] rounded-md vertical-center right-0 left-0">
+            <img src={cancel} alt={error.message} />
+            <h1 className="text-center mt-4 poppins-500 text-2xl text-red-500">{error.name}</h1>
+            <h1 className="text-center mt-1 poppins-500 text-2xl">{error.message}</h1>
+          </div>
         </div>
       </Layout>
     </Document>
@@ -74,18 +77,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 export function CatchBoundary() {
   let caught = useCatch();
 
-  let error;
-  switch (caught.status) {
-    case 401:
-      error = "Sem nemáte prístup!"
-      break;
-    case 404:
-      error = "Táto stránka sa nenašla"
-      break;
-
-    default:
-      error = caught.statusText
-  }
+  let error = caught.statusText;
 
   return (
     <Document title={`${caught.status} • ${error}`}>
@@ -114,6 +106,8 @@ function Document({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#928cf2" />
+        <meta name="description" content="Welcome to Vladimír Urík's blog" />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />

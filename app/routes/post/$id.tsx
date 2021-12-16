@@ -8,8 +8,7 @@ import AuthorCard from "../../components/authorCard";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Post",
-        description: "Blog post view"
+        title: "Blog • Post"
     };
 };
 

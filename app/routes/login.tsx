@@ -4,8 +4,7 @@ import Notification from "../components/notification";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Login",
-        description: "Login page"
+        title: "Login"
     };
 };
 

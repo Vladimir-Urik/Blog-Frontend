@@ -35,7 +35,7 @@ export async function login(request: Request, username: string, password: string
 export async function logout(request: Request): Promise<any> {
     let session = await storage.getSession(request.headers.get("Cookie"));
 
-    return redirect("/", {
+    return redirect("/?logout", {
         headers: {
             "Set-Cookie": await storage.destroySession(session)
         }

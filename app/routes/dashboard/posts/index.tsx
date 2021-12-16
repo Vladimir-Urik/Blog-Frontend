@@ -5,8 +5,7 @@ import { Form, Link, useLoaderData } from "remix";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Posts",
-        description: "Blog posts"
+        title: "Blog • Posts"
     };
 };
 

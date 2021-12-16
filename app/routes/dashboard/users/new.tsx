@@ -8,8 +8,7 @@ import Notification from "../../../components/notification";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Add user",
-        description: "Blog add user"
+        title: "Blog • Add user"
     };
 };
 

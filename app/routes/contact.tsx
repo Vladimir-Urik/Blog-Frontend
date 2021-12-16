@@ -5,8 +5,7 @@ import React from "react";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Contact",
-        description: "Blog contact"
+        title: "Blog • Contact"
     };
 };
 

@@ -6,8 +6,7 @@ import client from "../../../services/axios.server";
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Blog • Edit post",
-        description: "Blog edit post"
+        title: "Blog • Edit post"
     };
 };
 

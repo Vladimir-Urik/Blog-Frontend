@@ -4,15 +4,14 @@ import { SearchIcon } from '@heroicons/react/solid'
 import React from "react";
 import Post from "../components/post";
 import Footer from "../components/footer";
-import {ActionFunction, Form, LoaderFunction, useActionData, useLoaderData} from "remix";
+import {ActionFunction, Form, LoaderFunction, redirect, useActionData, useLoaderData} from "remix";
 import { getPosts } from "../services/blog.server";
 import client from "../services/axios.server";
 import search from "../images/search.svg"
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Blog • Home",
-    description: "Blog home page"
+    title: "Blog • Home"
   };
 };
 
