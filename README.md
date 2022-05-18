@@ -1,5 +1,5 @@
 # Blog Frontend
-- Toto je jedna z časti pprojektu ktorý som doniesol na prímačky na strednú školu.
+- Toto je jedna z časti pprojektu ktorý som robil a prezentoval na prímačkách na strednej škole. 
 - Je dosť možné že tam je dosť chýb. Ngl bol to môj prvý projekt v Remixe. 
  
 ## Použité technológie:
